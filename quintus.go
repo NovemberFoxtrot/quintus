@@ -14,9 +14,9 @@ type Quintus struct {
 }
 
 func checkerror(err error, comment string) {
-  if err != nil {
-    log.Fatalln("[ERROR]", comment, err)
-  }
+	if err != nil {
+		log.Fatalln("[ERROR]", comment, err)
+	}
 }
 
 func Write(somequintus []Quintus) {
@@ -33,7 +33,7 @@ func Write(somequintus []Quintus) {
 func Read() []Quintus {
 	rawfile, err := ioutil.ReadFile("quintus_gob")
 
-  checkerror(err, "READ")
+	checkerror(err, "READ")
 
 	buffer := bytes.NewBuffer(rawfile)
 	decoder := gob.NewDecoder(buffer)
@@ -42,7 +42,7 @@ func Read() []Quintus {
 
 	err = decoder.Decode(&somequintus)
 
-  checkerror(err, "DECODE")
-  
-  return somequintus
+	checkerror(err, "DECODE")
+
+	return somequintus
 }
