@@ -38,6 +38,8 @@ func checkfile() {
 }
 
 func Read() []Quintus {
+  checkfile()
+
 	rawfile, err := ioutil.ReadFile("quintus_gob")
 
 	checkerror(err, "READ")
