@@ -5,7 +5,7 @@ import (
 	"encoding/gob"
 	"io/ioutil"
 	"log"
-  "os"
+	"os"
 )
 
 type Quintus struct {
@@ -32,13 +32,13 @@ func Write(somequintus []Quintus) {
 }
 
 func checkfile() {
-  if _, err := os.Stat("quintus_gob"); os.IsNotExist(err) {
-    Write(make([]Quintus, 0))
-  }
+	if _, err := os.Stat("quintus_gob"); os.IsNotExist(err) {
+		Write(make([]Quintus, 0))
+	}
 }
 
 func Read() []Quintus {
-  checkfile()
+	checkfile()
 
 	rawfile, err := ioutil.ReadFile("quintus_gob")
 
